@@ -31,6 +31,8 @@ public class ReactNativeRestart extends ReactContextBaseJavaModule {
             // no-op to prevent any null pointer exceptions.
             return;
         }
+      
+      
 
         currentActivity.runOnUiThread(new Runnable() {
             @Override
@@ -52,7 +54,9 @@ public class ReactNativeRestart extends ReactContextBaseJavaModule {
                 @Override
                 public void run() {
                     try {
+                        //update by sin , restart app requires  reactContext & activety both  restarted.
                         instanceManager.recreateReactContextInBackground();
+                        loadBundleLegacy();
                     } catch (Exception e) {
                         loadBundleLegacy();
                     }
@@ -86,7 +90,7 @@ public class ReactNativeRestart extends ReactContextBaseJavaModule {
 
         ReactApplication reactApplication = (ReactApplication) currentActivity.getApplication();
         instanceManager = reactApplication.getReactNativeHost().getReactInstanceManager();
-
+        
         return instanceManager;
     }
 
