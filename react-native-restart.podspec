@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.name         = "react-native-restart"
   s.version      = package["version"]
   s.summary      = package["description"]
-  s.homepage     = package["homepage"]
   s.license      = package["license"]
   s.authors      = package["author"]
 
@@ -14,6 +13,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/avishayil/react-native-restart.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m}"
+  s.homepage     = "https://github.com/avishayil/react-native-restart"
 
   s.dependency "React"
 end
